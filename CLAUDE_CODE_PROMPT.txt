@@ -1,0 +1,122 @@
+================================================================================
+CLAUDE CODE PROMPT — CADA GALAXY LANDINGPAGE (Next.js + Tailwind + R3F)
+================================================================================
+Kopiere den GESAMTEN Text unterhalb der Linie in Claude Code (im Projekt-Root,
+in dem auch der Ordner `design_handoff_cada_galaxy/` liegt). Voraussetzung:
+Der Ordner `design_handoff_cada_galaxy/` (README.md, PORTING_GUIDE_R3F.md,
+reference/, screenshots/) liegt im Projektverzeichnis.
+--------------------------------------------------------------------------------
+
+Du baust eine pixelgenaue Landingpage für die Marke "CADA Galaxy" in DIESEM
+Next.js-Projekt. Im Ordner `design_handoff_cada_galaxy/` liegt das komplette
+Design-Handoff. Halte dich strikt daran.
+
+ZUERST LESEN (in dieser Reihenfolge, vollständig):
+1. design_handoff_cada_galaxy/README.md
+2. design_handoff_cada_galaxy/PORTING_GUIDE_R3F.md
+3. design_handoff_cada_galaxy/reference/scene.js   (die prozedurale Mars-Textur)
+4. design_handoff_cada_galaxy/reference/CADA Galaxy.html  (Markup/CSS/Scroll/Sternschnuppe/Live-Clock)
+5. Schau dir die Bilder in design_handoff_cada_galaxy/screenshots/ an
+   (01 Hero oben, 02 halb gescrollt, 03 zentriert/herangezoomt, 04 Leistungen, 05 Kontakt).
+   Diese Screenshots sind die verbindliche visuelle Vorgabe.
+
+STACK / VORGABEN:
+- Next.js mit TypeScript + Tailwind CSS.
+- Prüfe zuerst, ob das Projekt App Router (Ordner `app/`) oder Pages Router
+  (Ordner `pages/`) nutzt, und richte dich danach. Bei neuem Projekt: App Router.
+- 3D mit React Three Fiber: @react-three/fiber, @react-three/drei, three.
+- Smoothes Scrollen mit Lenis; Headline-/Scroll-Transforms optional mit framer-motion.
+- Fonts via next/font/google: Saira Condensed, Barlow, Space Mono.
+- Installiere benötigte Pakete:
+  npm i three @react-three/fiber @react-three/drei lenis framer-motion
+  npm i -D @types/three
+
+NICHT VERHANDELBAR (sonst weicht das Ergebnis ab):
+- Den HTML-Prototyp NICHT einbetten/iframen. Alles als saubere React-Komponenten
+  + Tailwind neu aufbauen, exakt nach Doku.
+- Die prozedurale Mars-Oberfläche aus reference/scene.js 1:1 übernehmen
+  (alle Canvas-Helfer: makeNoiseCanvas, rgbaStr, softBlob, drawCrater,
+  craterShape, genCraters, craterPath, drawDeepCrater, smoothPoles,
+  buildMarsColor, buildMarsBump, starSprite). KEIN externes Mars-Foto verwenden.
+  Die Krater-Liste (genCraters) zwischen Color- und Bump-Map TEILEN, sonst liegen
+  Relief und Färbung nicht übereinander. smoothPoles MUSS aktiv bleiben
+  (keine Naht/keine zusammenlaufenden Linien am Pol). Eiskappen (drawPolarCap)
+  NICHT verwenden.
+- Three/R3F nur client-side: Hero/MarsScene mit "use client"; das <Canvas> per
+  next/dynamic mit { ssr: false } laden.
+- Animationen STRIKT delta-time-basiert in useFrame((state, delta) => ...),
+  niemals feste Schritte pro Frame (sonst ruckelt es).
+- <Canvas dpr={[1, 1.5]}> (Pixel-Ratio cappen).
+- Texturen nur EINMAL via useMemo erzeugen (4096x2048, teuer).
+- Scroll-Fortschritt p (0..1) über einen useRef in die useFrame-Loop geben,
+  NICHT pro Frame React-State setzen.
+
+DESIGN-TOKENS (als CSS-Variablen + Tailwind-Theme):
+- bg #050507, ink #f4f4f6, muted #9a9aa4, accent #ff6a3d,
+  line rgba(255,255,255,0.12), card-hover #0a0a0f.
+- Buttons/Cards eckig (kein Radius), nur Punkte/Glyphen rund.
+- Hintergrund: fixe .space-bg-Ebene mit den 4 radial-gradients aus README §6
+  plus statische 1px-Sternpunkte (::after, opacity 0.5).
+- Typo-Skala exakt aus README §6 (u.a. Hero-h1 = Saira Condensed Gewicht 400,
+  clamp(4.2rem,13vw,12rem), line-height 0.82, UPPERCASE, letter-spacing -0.01em,
+  text-shadow 0 8px 60px rgba(0,0,0,.6)).
+
+SEITENAUFBAU (eine Page):
+1) Header (fixed, z-50): links Logo public/logo.png (height 34px), Mitte Nav
+   [Leistungen, Prozess, Referenzen, Kontakt] -> Anker #leistungen #prozess
+   #referenzen #kontakt (Space Mono 12px, 0.18em, muted; Hover ink + accent-
+   Underline wächst 0->100%), rechts Status-Pill mit pulsierendem accent
+   "LIVE"-Dot + "ORBIT" + Live-Clock "T+HH:MM:SS" (zählt ab Mount hoch).
+   Responsive: Nav < 1024px aus, Status < 640px aus.
+2) Hero: section.hero-wrap height 240vh > div.hero-sticky (sticky top 0,
+   height 100vh, overflow hidden). Ebenen: ShootingStar (z0), MarsScene
+   (z1, absolute inset 0), hero-content (z2, flex zentriert, pointer-events none,
+   CTA pointer-events auto), scroll-hint (z3, unten zentriert).
+   Headline zweizeilig "CADA" / "GALAXY". kicker, sub, CTA "ENTDECKEN" siehe Doku.
+3) Features (#leistungen): Kopf (Label "/ Leistungen", h2 "Gebaut für den Orbit",
+   Beschreibungsabsatz) + 3-Spalten-Grid mit 1px-Linien (gap:1px auf line-BG,
+   < 900px einspaltig). 3 Cards 01 Strategie / 02 Design / 03 Entwicklung
+   (Texte WÖRTLICH aus README §7.3). Hover: BG #0a0a0f + 2px accent-Linie oben
+   wächst 0->100%. Unten runder Glyph mit accent-Punkt.
+4) Contact (#kontakt): zentriert, border-top, dekorativer accent-Radialschein
+   unten (::before), Label "/ Kontakt", h2 "Bereit für\nden Anflug?",
+   Mail-Link hallo@cadagalaxy.com (border-bottom accent, Hover accent).
+5) Footer: border-top, flex space-between, Space Mono 11px 0.14em UPPERCASE muted:
+   "CADA Galaxy" (ink 16px) / "© 2026 — Made in Orbit" / "Imprint · Datenschutz".
+
+SCROLL-VERHALTEN (exakte Formeln, README §8.1):
+  total = heroWrap.offsetHeight - window.innerHeight
+  p     = clamp(-heroWrap.getBoundingClientRect().top / total, 0, 1)
+  Headline:   translateX(-p*78vw),  opacity = max(0, 1 - p*1.5)
+  ScrollHint: opacity = max(0, 1 - p*4)
+  3D-Planet (Pivot, über easeInOut(p) interpoliert):
+    x 1.28 -> 0.02,  y -0.04 -> 0.02,  scale 1.12 -> 1.72
+    rotation.y = autoSpin(0.1 rad/s, delta-time) + p*PI*0.9
+    Achsneigung rotation = [0.12, 0, 0.42] (Euler x,y,z)
+  Kamera fov 45, position [0,0,3.25]. Lichter exakt aus PORTING_GUIDE §3.
+  Sphere args [1,128,128], MeshStandardMaterial map+bumpMap, bumpScale 0.03,
+  roughness 0.96, metalness 0. Sternenfeld 3200 Punkte (buildStars portieren),
+  langsame Eigenrotation 0.011 rad/s.
+
+STERNSCHNUPPE (README §8.3): 3px Punkt + Glow + 120px Schweif (CSS-Gradient),
+  erster Flug nach 1500 ms, danach alle 9000 + rand*9000 ms. Start links-oben
+  (sx W*0.24..0.58, sy H*0.05..0.29), Winkel 152..180°, Distanz W*0.4..0.66,
+  Dauer 0.9..1.4s linear, opacity 0->1(8%)->1(78%)->0, z-index 0 (hinter Planet).
+  Keyframes exakt aus reference/CADA Galaxy.html (.shooting-star, @keyframes shoot).
+
+PERFORMANCE-CHECKLISTE (README §10): "use client", dynamic ssr:false, useMemo-
+  Texturen, delta-time-Loop, dpr [1,1.5], progress per Ref, Canvas pausieren wenn
+  Hero außer Sicht (frameloop="demand" oder IntersectionObserver). prefers-
+  reduced-motion respektieren (Rotation verlangsamen/Sternschnuppe aus).
+
+ASSET: Kopiere design_handoff_cada_galaxy/reference/logo.png nach public/logo.png.
+
+DEFINITION OF DONE (README §13) erfüllen und am Ende gegen die Screenshots
+01 und 03 visuell abgleichen. Wenn Three-Versionsunterschiede (r128 vs aktuell)
+zu Farb-/Helligkeitsabweichungen führen (sRGBEncoding -> colorSpace, Light-
+Intensitäten), korrigiere so, dass das Ergebnis den Screenshots entspricht.
+
+Arbeite die Komponenten gemäß der Struktur in README §5 ab, starte den Dev-Server
+und behebe alle Konsolen-/Build-Fehler, bis Hero, Scroll-Effekt, Sternschnuppe,
+Features und Kontakt fehlerfrei laufen.
+================================================================================
