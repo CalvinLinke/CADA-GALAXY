@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="pg" cx="38%" cy="32%" r="65%">
+      <stop offset="0%"   stop-color="#ff8f6a"/>
+      <stop offset="50%"  stop-color="#e85a28"/>
+      <stop offset="100%" stop-color="#8c2010"/>
+    </radialGradient>
+    <!-- clip: lower half = behind planet -->
+    <clipPath id="lo"><rect x="0" y="31" width="64" height="33"/></clipPath>
+    <!-- clip: upper half = in front of planet -->
+    <clipPath id="hi"><rect x="0" y="0"  width="64" height="31"/></clipPath>
+  </defs>
+
+  <!-- orbit arc behind planet -->
+  <ellipse cx="32" cy="32" rx="27" ry="10"
+           fill="none" stroke="#9a6020" stroke-width="2.5" stroke-linecap="round"
+           clip-path="url(#lo)" transform="rotate(-32 32 32)"/>
+
+  <!-- planet body -->
+  <circle cx="32" cy="32" r="15" fill="url(#pg)"/>
+
+  <!-- subtle highlight for 3-D look -->
+  <ellipse cx="26" cy="25" rx="5.5" ry="4.5" fill="rgba(255,255,255,0.11)"/>
+
+  <!-- orbit arc in front of planet -->
+  <ellipse cx="32" cy="32" rx="27" ry="10"
+           fill="none" stroke="#d89040" stroke-width="3" stroke-linecap="round"
+           clip-path="url(#hi)" transform="rotate(-32 32 32)"/>
+</svg>

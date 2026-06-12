@@ -31,13 +31,13 @@ export function Mars({ progressRef }: MarsProps) {
     const p = progressRef.current;
     const e = easeInOut(p);
 
-    // narrow viewport: pull planet slightly smaller/lower
+    // narrow viewport: shift planet left + up so it stays visible on mobile
     const aspect = size.width / size.height;
     const narrow = Math.max(0, Math.min(0.6, 1.2 - aspect));
-    const s = lerp(BASE.s0, BASE.s1, e) * (1 - narrow * 0.32);
+    const s = lerp(BASE.s0, BASE.s1, e) * (1 - narrow * 0.25);
 
-    pivot.current.position.x = lerp(BASE.x0, BASE.x1, e) + narrow * 0.15;
-    pivot.current.position.y = lerp(BASE.y0, BASE.y1, e) - narrow * 0.55;
+    pivot.current.position.x = lerp(BASE.x0 - narrow * 1.4, BASE.x1, e);
+    pivot.current.position.y = lerp(BASE.y0 + narrow * 0.30, BASE.y1, e);
     pivot.current.scale.setScalar(s);
 
     // delta-time auto-rotation + scroll extra turn
