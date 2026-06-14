@@ -1,6 +1,11 @@
 "use client";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function Contact() {
+  const { lang } = useLanguage();
+  const t = translations[lang].contactSection;
+
   return (
     <section
       id="kontakt"
@@ -27,7 +32,7 @@ export function Contact() {
           marginBottom: 28,
         }}
       >
-        / Kontakt
+        {t.eyebrow}
       </div>
 
       <h2
@@ -41,13 +46,13 @@ export function Contact() {
           position: "relative",
         }}
       >
-        Bereit für
+        {t.h2_1}
         <br />
-        den Anflug?
+        {t.h2_2}
       </h2>
 
       <a
-        href="mailto:hallo@cadagalaxy.com"
+        href="mailto:info@cada-galaxy.de"
         style={{
           marginTop: 40,
           display: "inline-flex",
@@ -64,7 +69,7 @@ export function Contact() {
         onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--ink)"; }}
       >
-        hallo@cadagalaxy.com
+        info@cada-galaxy.de
       </a>
     </section>
   );

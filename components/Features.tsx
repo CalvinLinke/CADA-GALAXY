@@ -1,22 +1,11 @@
-const cards = [
-  {
-    num: "01",
-    title: "Strategie",
-    text: "Positionierung, Markenkern und digitale Roadmaps, die Richtung geben — bevor die erste Pixel-Grenze gezogen wird.",
-  },
-  {
-    num: "02",
-    title: "Design",
-    text: "Interfaces und visuelle Systeme mit Haltung. Reduziert, präzise und auf jedem Viewport in Balance.",
-  },
-  {
-    num: "03",
-    title: "Entwicklung",
-    text: "Performante Frontends, 3D und Motion. Vom Konzept bis zum Launch — technisch sauber, spürbar lebendig.",
-  },
-];
+"use client";
+import { useLanguage } from "@/lib/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export function Features() {
+  const { lang } = useLanguage();
+  const t = translations[lang].features;
+
   return (
     <section
       id="leistungen"
@@ -51,7 +40,7 @@ export function Features() {
               marginBottom: 16,
             }}
           >
-            / Leistungen
+            {t.eyebrow}
           </div>
           <h2
             style={{
@@ -64,7 +53,7 @@ export function Features() {
               maxWidth: "14ch",
             }}
           >
-            Gebaut für den Orbit
+            {t.h2}
           </h2>
         </div>
         <p
@@ -75,8 +64,7 @@ export function Features() {
             lineHeight: 1.6,
           }}
         >
-          Drei Disziplinen, ein System. Wir verbinden Strategie, Gestaltung und
-          Technologie zu Erlebnissen mit Anziehungskraft.
+          {t.desc}
         </p>
       </div>
 
@@ -91,7 +79,7 @@ export function Features() {
         }}
         className="features-grid"
       >
-        {cards.map((c) => (
+        {t.cards.map((c) => (
           <div key={c.num} className="feature-card">
             <div
               style={{
@@ -125,7 +113,6 @@ export function Features() {
             >
               {c.text}
             </p>
-            {/* glyph */}
             <div
               style={{
                 marginTop: 30,

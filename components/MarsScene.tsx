@@ -22,9 +22,9 @@ export default function MarsScene({ progressRef }: MarsSceneProps) {
     >
       <Stars />
       <Mars progressRef={progressRef} />
-      <directionalLight color={0xfff1e4} intensity={2.5} position={[4.5, 1.4, 3.2]} />
-      <directionalLight color={0x5878a8} intensity={1.9} position={[-4, -1.5, -2]} />
-      <ambientLight color={0x3a4560} intensity={0.70} />
+      <directionalLight color={0xfff1e4} intensity={2.7} position={[4.5, 1.4, 3.2]} />
+      <directionalLight color={0x5878a8} intensity={2.05} position={[-4, -1.5, -2]} />
+      <ambientLight color={0x3a4560} intensity={0.82} />
     </Canvas>
   );
 }

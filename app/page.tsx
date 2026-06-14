@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { Features } from "@/components/Features";
+import { HomeSections } from "@/components/HomeSections";
 import { Contact } from "@/components/Contact";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -11,7 +11,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Features />
+        <HomeSections />
         <Contact />
       </main>
       <SiteFooter />

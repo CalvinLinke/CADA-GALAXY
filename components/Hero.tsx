@@ -98,7 +98,7 @@ export function Hero() {
                   flexShrink: 0,
                 }}
               />
-              14°35′N · 175°47′W
+              51°02′N · 13°47′E
             </div>
 
             {/* headline */}
@@ -129,7 +129,7 @@ export function Hero() {
                 fontWeight: 300,
               }}
             >
-              Eine neue Dimension digitaler Gestaltung — in Bewegung, in Tiefe, in Orbit.
+              Eine neue Dimension digitaler Gestaltung — in Bewegung, in Tiefe, in Vileflat.
             </p>
 
             {/* CTA */}
