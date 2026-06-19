@@ -11,7 +11,6 @@ export function Features() {
       id="leistungen"
       className="section"
       style={{
-        background: "var(--bg)",
         borderTop: "1px solid var(--line)",
         padding: "clamp(90px, 12vh, 160px) clamp(22px, 5vw, 90px)",
         position: "relative",

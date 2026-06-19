@@ -107,17 +107,19 @@ function drawDeepCrater(
   ctx.clip();
   const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
   if (isBump) {
-    g.addColorStop(0.0,  'rgba(8,8,8,0.92)');
-    g.addColorStop(0.55, 'rgba(28,28,28,0.58)');
-    g.addColorStop(0.82, 'rgba(6,6,6,0.82)');
-    g.addColorStop(0.95, 'rgba(255,255,255,0.90)');
-    g.addColorStop(1.0,  'rgba(128,128,128,0)');
+    // flat dust-filled floor → steep dark inner wall → sharp bright rim
+    g.addColorStop(0.00, 'rgba(100,100,100,0.90)'); // floor: near-neutral
+    g.addColorStop(0.28, 'rgba(8,8,8,0.96)');        // inner wall start: deep
+    g.addColorStop(0.86, 'rgba(252,252,252,1.0)');   // rim peak: crisp bright
+    g.addColorStop(0.95, 'rgba(195,195,195,0.65)');  // outer rim falloff
+    g.addColorStop(1.00, 'rgba(128,128,128,0)');     // neutral
   } else {
-    g.addColorStop(0.0,  'rgba(18,9,4,0.30)');
-    g.addColorStop(0.6,  'rgba(26,14,7,0.15)');
-    g.addColorStop(0.85, 'rgba(7,3,1,0.30)');
-    g.addColorStop(0.94, 'rgba(232,182,138,0.12)');
-    g.addColorStop(1.0,  'rgba(0,0,0,0)');
+    // dusty floor → shadow wall → bright ejecta rim
+    g.addColorStop(0.00, 'rgba(28,14,7,0.28)');      // floor: dark dust
+    g.addColorStop(0.28, 'rgba(8,3,1,0.20)');        // inner wall shadow
+    g.addColorStop(0.86, 'rgba(228,182,136,0.20)');  // rim: ejecta bright
+    g.addColorStop(0.95, 'rgba(190,145,100,0.08)');  // outer rim
+    g.addColorStop(1.00, 'rgba(0,0,0,0)');
   }
   ctx.fillStyle = g;
   ctx.fillRect(cx - r * 1.6, cy - r * 1.6, r * 3.2, r * 3.2);
@@ -178,7 +180,7 @@ export function buildMarsColor(craters: CraterDef[]): HTMLCanvasElement {
   const ctx = c.getContext('2d')!;
   ctx.imageSmoothingEnabled = true;
 
-  ctx.fillStyle = '#9c5c38';
+  ctx.fillStyle = '#b8723f';
   ctx.fillRect(0, 0, W, H);
 
   const pal: number[][] = [
@@ -258,6 +260,15 @@ export function buildMarsColor(craters: CraterDef[]): HTMLCanvasElement {
     if (ox > W - orr) softBlob(ctx, ox - W, oy, orr, [208, 172, 118], oa, 'soft-light');
   }
 
+  // craters drawn BEFORE fine texture so noise layers apply inside them too
+  ctx.globalCompositeOperation = 'source-over';
+  ctx.globalAlpha = 1;
+  for (const cc of craters) {
+    drawDeepCrater(ctx, cc, 0, false);
+    if (cc.x < cc.r)     drawDeepCrater(ctx, cc, W,  false);
+    if (cc.x > W - cc.r) drawDeepCrater(ctx, cc, -W, false);
+  }
+
   const fine: [number, number, GlobalCompositeOperation][] = [
     [90,   0.20, 'soft-light'],
     [240,  0.16, 'soft-light'],
@@ -269,14 +280,6 @@ export function buildMarsColor(craters: CraterDef[]): HTMLCanvasElement {
     ctx.globalAlpha = alpha;
     ctx.globalCompositeOperation = op;
     ctx.drawImage(makeNoiseCanvas(size, Math.max(2, size / 2)), 0, 0, W, H);
-  }
-
-  ctx.globalCompositeOperation = 'source-over';
-  ctx.globalAlpha = 1;
-  for (const cc of craters) {
-    drawDeepCrater(ctx, cc, 0, false);
-    if (cc.x < cc.r)     drawDeepCrater(ctx, cc, W,  false);
-    if (cc.x > W - cc.r) drawDeepCrater(ctx, cc, -W, false);
   }
 
   ctx.globalAlpha = 0.07;
@@ -306,22 +309,23 @@ export function buildMarsBump(craters: CraterDef[]): HTMLCanvasElement {
   ctx.fillStyle = '#808080';
   ctx.fillRect(0, 0, W, H);
 
-  const layers: [number, number][] = [
-    [20, 0.62], [48, 0.52], [120, 0.44], [300, 0.36],
-    [760, 0.28], [1700, 0.20], [3400, 0.14],
-  ];
-  for (const [size, alpha] of layers) {
-    ctx.globalAlpha = alpha;
-    ctx.globalCompositeOperation = 'overlay';
-    ctx.drawImage(makeNoiseCanvas(size, Math.max(2, size / 2)), 0, 0, W, H);
-  }
-
+  // craters drawn BEFORE noise so terrain noise applies inside them too
   ctx.globalCompositeOperation = 'source-over';
   ctx.globalAlpha = 1;
   for (const cc of craters) {
     drawDeepCrater(ctx, cc, 0, true);
     if (cc.x < cc.r)     drawDeepCrater(ctx, cc, W,  true);
     if (cc.x > W - cc.r) drawDeepCrater(ctx, cc, -W, true);
+  }
+
+  const layers: [number, number][] = [
+    [20, 0.32], [48, 0.26], [120, 0.20], [300, 0.16],
+    [760, 0.12], [1700, 0.09], [3400, 0.06],
+  ];
+  for (const [size, alpha] of layers) {
+    ctx.globalAlpha = alpha;
+    ctx.globalCompositeOperation = 'overlay';
+    ctx.drawImage(makeNoiseCanvas(size, Math.max(2, size / 2)), 0, 0, W, H);
   }
 
   smoothPoles(ctx, W, H, true);
@@ -350,9 +354,9 @@ function drawCraterDisp(
   craterPath(ctx, cx, cy, cc);
   ctx.clip();
   const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
-  g.addColorStop(0.00, 'rgba(80,80,80,0.95)');    // floor (moderately depressed)
-  g.addColorStop(0.60, 'rgba(45,45,45,0.98)');    // steep inner wall (deepest)
-  g.addColorStop(0.88, 'rgba(225,225,225,0.95)'); // raised rim
+  g.addColorStop(0.00, 'rgba(52,52,52,0.95)');    // floor: deeper depression
+  g.addColorStop(0.60, 'rgba(18,18,18,0.98)');    // steep inner wall: much deeper
+  g.addColorStop(0.88, 'rgba(225,225,225,0.95)'); // raised rim: unchanged
   g.addColorStop(1.00, 'rgba(128,128,128,0)');
   ctx.fillStyle = g;
   ctx.fillRect(cx - r * 1.6, cy - r * 1.6, r * 3.2, r * 3.2);
@@ -409,4 +413,60 @@ export function buildMarsDisplacement(craters: CraterDef[]): HTMLCanvasElement {
 
   smoothPoles(ctx, W, H, true);
   return c;
+}
+
+export function buildMarsNormal(
+  _craters: CraterDef[],
+  bumpCanvas: HTMLCanvasElement,
+): HTMLCanvasElement {
+  const W = 2048, H = 1024; // half-res Sobel (~80–150 ms, one-time)
+
+  // downscale bump to working resolution (GPU-accelerated drawImage)
+  const down = document.createElement('canvas');
+  down.width = W; down.height = H;
+  const dctx = down.getContext('2d')!;
+  dctx.drawImage(bumpCanvas, 0, 0, W, H);
+  const src = dctx.getImageData(0, 0, W, H).data;
+
+  const nc = document.createElement('canvas');
+  nc.width = W; nc.height = H;
+  const nctx = nc.getContext('2d')!;
+  const out = nctx.createImageData(W, H);
+  const dst = out.data;
+
+  // proper 3×3 Sobel kernel — smoother, sharper normals than 2-point diff
+  const strength = 3.5;
+  const getH = (x: number, y: number): number => {
+    x = ((x % W) + W) % W;
+    y = Math.max(0, Math.min(H - 1, y));
+    return src[(y * W + x) * 4] / 255.0;
+  };
+
+  for (let y = 0; y < H; y++) {
+    for (let x = 0; x < W; x++) {
+      // Sobel Gx: [[-1,0,1],[-2,0,2],[-1,0,1]] / 4
+      const gx = (
+        -getH(x-1,y-1) + getH(x+1,y-1)
+        - 2*getH(x-1,y) + 2*getH(x+1,y)
+        - getH(x-1,y+1) + getH(x+1,y+1)
+      ) * 0.25;
+      // Sobel Gy: [[-1,-2,-1],[0,0,0],[1,2,1]] / 4
+      const gy = (
+        -getH(x-1,y-1) - 2*getH(x,y-1) - getH(x+1,y-1)
+        + getH(x-1,y+1) + 2*getH(x,y+1) + getH(x+1,y+1)
+      ) * 0.25;
+      let nx = -gx * strength;
+      let ny = -gy * strength;
+      let nz = 1.0;
+      const len = Math.sqrt(nx * nx + ny * ny + nz * nz);
+      nx /= len; ny /= len; nz /= len;
+      const i = (y * W + x) * 4;
+      dst[i]     = (nx * 0.5 + 0.5) * 255 + 0.5 | 0;
+      dst[i + 1] = (ny * 0.5 + 0.5) * 255 + 0.5 | 0;
+      dst[i + 2] = (nz * 0.5 + 0.5) * 255 + 0.5 | 0;
+      dst[i + 3] = 255;
+    }
+  }
+  nctx.putImageData(out, 0, 0);
+  return nc;
 }

@@ -11,22 +11,22 @@ const VALUES_DE = [
   {
     num: "01",
     title: "Kein Template-Denken",
-    desc: "Jede Website entsteht von Grund auf neu. Wir entwickeln individuelle Lösungen, die zur Marke und zu den Zielen des Projekts passen — keine Baukästen, keine Kompromisse.",
+    desc: "Jede Website entsteht von Grund auf neu. Wir entwickeln individuelle Websites, die zur Marke und zu den Zielen des Projekts passen: keine Baukästen, keine Kompromisse.",
   },
   {
     num: "02",
     title: "Performance ist Standard",
-    desc: "Ein 100/100 Lighthouse Score ist bei uns kein Ausnahmefall, sondern Mindestanforderung. Schnelle Websites ranken besser, konvertieren besser — und fühlen sich besser an.",
+    desc: "Spitzen-Performance ist bei uns kein Zufall, sondern Anspruch. Wir bauen Websites so, dass sie in Performance, SEO und Best Practices Spitzenwerte erreichen — schnelle Websites ranken besser, konvertieren besser und fühlen sich besser an.",
   },
   {
     num: "03",
     title: "3D als echtes Werkzeug",
-    desc: "3D-Elemente setzen wir dort ein, wo sie echten Mehrwert erzeugen — nicht als Gimmick, sondern als Kommunikationsmittel. Direkt im Browser, ohne Plugins.",
+    desc: "3D-Elemente setzen wir dort ein, wo sie echten Mehrwert erzeugen. Nicht als Gimmick, sondern als Kommunikationsmittel. Direkt im Browser, ohne Plugins.",
   },
   {
     num: "04",
     title: "Tempo ohne Abstriche",
-    desc: "∅ 14 Tage vom Briefing bis zum Launch — das ist kein Marketingversprechen, sondern unser Schnitt. Ermöglicht durch einen klaren Prozess und direkte Kommunikation.",
+    desc: "∅ 3 Wochen vom Kennenlernen bis zur Veröffentlichung: das ist kein Marketingversprechen, sondern unser Schnitt. Ermöglicht durch einen klaren Prozess und direkte Kommunikation.",
   },
 ];
 
@@ -34,36 +34,36 @@ const VALUES_EN = [
   {
     num: "01",
     title: "No template thinking",
-    desc: "Every website is built from scratch. We develop individual solutions that fit the brand and project goals — no page builders, no compromises.",
+    desc: "Every website is built from scratch. We develop individual websites that fit the brand and project goals: no page builders, no compromises.",
   },
   {
     num: "02",
     title: "Performance is standard",
-    desc: "A 100/100 Lighthouse score isn't an exception with us — it's the minimum requirement. Fast websites rank better, convert better and feel better.",
+    desc: "Top performance isn't luck with us, it's the standard we hold ourselves to. We build websites to reach top scores in performance, SEO and best practices — fast websites rank better, convert better and feel better.",
   },
   {
     num: "03",
     title: "3D as a real tool",
-    desc: "We use 3D elements where they create genuine value — not as a gimmick, but as a communication tool. Directly in the browser, no plugins required.",
+    desc: "We use 3D elements where they create genuine value. Not as a gimmick, but as a communication tool. Directly in the browser, no plugins required.",
   },
   {
     num: "04",
     title: "Speed without compromise",
-    desc: "∅ 14 days from briefing to launch — that's not a marketing promise, it's our average. Made possible by a clear process and direct communication.",
+    desc: "∅ 3 weeks from first meeting to publication: that's not a marketing promise, it's our average. Made possible by a clear process and direct communication.",
   },
 ];
 
 const STATS_DE = [
-  { value: "100", label: "Lighthouse Score", sub: "Jedes Projekt" },
-  { value: "∅ 14", label: "Tage bis Launch", sub: "Vom Briefing bis Go-live" },
-  { value: "3", label: "Referenzprojekte", sub: "Immobilien, B2B, Redesign" },
+  { value: "Lighthouse", label: "Performance-optimiert", sub: "Spitzenwerte im Fokus" },
+  { value: "∅ 3", label: "Wochen bis Fertigstellung", sub: "Vom Erstgespräch bis zur Veröffentlichung" },
+  { value: "< 1,5s", label: "Ladezeit", sub: "Auf jedem Gerät" },
   { value: "2", label: "Sprachen", sub: "Deutsch & Englisch" },
 ];
 
 const STATS_EN = [
-  { value: "100", label: "Lighthouse Score", sub: "Every project" },
-  { value: "∅ 14", label: "Days to launch", sub: "From briefing to go-live" },
-  { value: "3", label: "Reference projects", sub: "Real estate, B2B, Redesign" },
+  { value: "Lighthouse", label: "Performance-tuned", sub: "Built for top scores" },
+  { value: "∅ 3", label: "Weeks to completion", sub: "From first call to publication" },
+  { value: "< 1.5s", label: "Load time", sub: "On every device" },
   { value: "2", label: "Languages", sub: "German & English" },
 ];
 
@@ -113,8 +113,8 @@ export default function UeberUnsPage() {
           }}
         >
           {isDE
-            ? "CADA Galaxy ist eine Webagentur aus Dresden, gegründet als CADA Invest GmbH. Wir entwickeln digitale Erlebnisse, die im Gedächtnis bleiben — mit 3D-Web, maximaler Performance und einer durchschnittlichen Projektlaufzeit von 14 Tagen. Für Unternehmen in Deutschland, die mehr wollen als eine Standard-Website."
-            : "CADA Galaxy is a web agency from Dresden, founded as CADA Invest GmbH. We develop digital experiences that stick — with 3D web, maximum performance and an average project duration of 14 days. For businesses in Germany that want more than a standard website."}
+            ? "CADA Galaxy ist eine Webagentur aus Dresden. Wir entwickeln digitale Erlebnisse, die im Gedächtnis bleiben — mit 3D-Web, maximaler Performance und einer durchschnittlichen Projektlaufzeit von 3 Wochen. Für Unternehmen in Deutschland, die mehr wollen als eine Standard-Website."
+            : "CADA Galaxy is a web agency from Dresden. We develop digital experiences that stick — with 3D web, maximum performance and an average project duration of 3 weeks. For businesses in Germany that want more than a standard website."}
         </p>
       </section>
 
@@ -139,7 +139,9 @@ export default function UeberUnsPage() {
             <div
               key={s.value}
               style={{
-                background: "var(--bg)",
+                background: "rgba(13,17,42,0.60)",
+                backdropFilter: "blur(7px)",
+                WebkitBackdropFilter: "blur(7px)",
                 padding: "clamp(24px, 3.5vh, 40px) clamp(18px, 2.5vw, 32px)",
               }}
             >
@@ -336,7 +338,7 @@ export default function UeberUnsPage() {
                 marginBottom: 20,
               }}
             >
-              {isDE ? "/ Standort & Koordinaten" : "/ Location & coordinates"}
+              {isDE ? "/ Standort" : "/ Location"}
             </div>
             <h2
               style={{
@@ -360,8 +362,8 @@ export default function UeberUnsPage() {
               }}
             >
               {isDE
-                ? "Unser Büro befindet sich im Dresdner Stadtteil Blasewitz. Projekte betreuen wir für Kunden in ganz Deutschland — vollständig remote, mit klaren Strukturen und kurzen Kommunikationswegen."
-                : "Our office is located in the Dresden district of Blasewitz. We work with clients across Germany — fully remote, with clear structures and short communication paths."}
+                ? "Projekte betreuen wir für Kunden in ganz Deutschland — vollständig remote, mit klaren Strukturen und kurzen Kommunikationswegen."
+                : "We work with clients across Germany — fully remote, with clear structures and short communication paths."}
             </p>
           </div>
           <div
@@ -494,7 +496,7 @@ export default function UeberUnsPage() {
             maxWidth: "26ch",
           }}
         >
-          {isDE ? "Bereit für dein nächstes Webprojekt?" : "Ready for your next web project?"}
+          {isDE ? "Bereit für Ihr nächstes Webprojekt?" : "Ready for your next web project?"}
         </h3>
         <CtaLink href="/kontakt">
           {isDE ? "Kontakt" : "Contact"}

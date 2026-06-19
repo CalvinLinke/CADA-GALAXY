@@ -129,7 +129,7 @@ export function Hero() {
                 fontWeight: 300,
               }}
             >
-              Eine neue Dimension digitaler Gestaltung — in Bewegung, in Tiefe, in Vileflat.
+              Wir entwickeln Websites, die in Sekundenbruchteilen laden, auf dem Handy überzeugen und bei Google sichtbar sind.
             </p>
 
             {/* CTA */}

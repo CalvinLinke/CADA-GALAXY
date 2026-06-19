@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Tech-Stack — Next.js, Three.js & TypeScript",
-  description: "Der Tech-Stack der Webagentur CADA Galaxy: Next.js, Three.js, TypeScript, Tailwind CSS, Framer Motion, Vercel — 100/100 Lighthouse Score bei jedem Projekt.",
+  description: "Der Tech-Stack der Webagentur CADA Galaxy: Next.js, Three.js, TypeScript, Tailwind CSS, Framer Motion, Vercel — auf Spitzen-Performance optimiert.",
 };
 
 const breadcrumbSchema = {

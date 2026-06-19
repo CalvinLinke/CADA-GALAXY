@@ -11,7 +11,6 @@ export function Contact() {
       id="kontakt"
       className="section contact-section"
       style={{
-        background: "var(--bg)",
         borderTop: "1px solid var(--line)",
         padding: "clamp(90px, 14vh, 180px) clamp(22px, 5vw, 90px)",
         display: "flex",

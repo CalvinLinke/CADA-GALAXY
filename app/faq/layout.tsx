@@ -30,7 +30,7 @@ const faqSchema = {
       "name": "Wie lange dauert ein Webprojekt?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Eine einfache Landingpage ist in 2–3 Wochen fertig. Größere Projekte mit individuellem Design und Entwicklung dauern typischerweise 4–8 Wochen. Die durchschnittliche Projektdauer bei CADA Galaxy beträgt 14 Tage.",
+        "text": "Eine einfache Landingpage ist in 2–3 Wochen fertig. Größere Projekte mit individuellem Design und Entwicklung dauern typischerweise 4–8 Wochen. Die durchschnittliche Projektdauer bei CADA Galaxy beträgt rund 3 Wochen.",
       },
     },
     {
@@ -38,7 +38,7 @@ const faqSchema = {
       "name": "Was macht CADA Galaxy anders als andere Agenturen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CADA Galaxy ist eine der wenigen Agenturen, die echte 3D- und Motion-Erlebnisse mit solider Strategie und klassischem Webdesign verbindet. Kein Template-Einsatz, keine Baukästen — jedes Projekt wird von Grund auf neu gebaut. Dazu: 100/100 Lighthouse Score bei jedem Projekt.",
+        "text": "CADA Galaxy ist eine der wenigen Agenturen, die echte 3D- und Motion-Erlebnisse mit solider Strategie und klassischem Webdesign verbindet. Kein Template-Einsatz, keine Baukästen — jedes Projekt wird von Grund auf neu gebaut. Dazu: konsequent auf Spitzen-Performance optimiert.",
       },
     },
     {
@@ -126,7 +126,7 @@ const faqSchema = {
       "name": "Was unterscheidet euren Prozess von anderen Agenturen?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Transparenz, Geschwindigkeit und direkte Kommunikation. Kein Agentur-Overhead, keine langen Wartelisten. Vom Erstgespräch bis zum Launch dauert ein typisches Projekt bei uns ∅ 14 Tage — mit zwei festen Feedback-Runden und klaren Meilensteinen.",
+        "text": "Transparenz, Geschwindigkeit und direkte Kommunikation. Kein Agentur-Overhead, keine langen Wartelisten. Vom Erstgespräch bis zur Fertigstellung dauert ein typisches Projekt bei uns ∅ 3 Wochen — mit zwei festen Feedback-Runden und klaren Meilensteinen.",
       },
     },
     {

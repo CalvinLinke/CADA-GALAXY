@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Referenzen — Webprojekte der Webagentur CADA Galaxy",
-  description: "Ausgewählte Webprojekte von CADA Galaxy: Immobilien, B2B-Telekommunikation, Redesign — mit 100/100 Lighthouse Score und ∅ 14 Tagen Lieferzeit.",
+  description: "Ausgewählte Webprojekte von CADA Galaxy: Immobilien, B2B-Telekommunikation, Redesign — auf Spitzen-Performance optimiert und mit ∅ 3 Wochen Projektdauer.",
 };
 
 const breadcrumbSchema = {

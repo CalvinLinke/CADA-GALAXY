@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Prozess — 4 Phasen vom Briefing bis Launch",
-  description: "Vom Briefing bis zum Launch in ∅ 14 Tagen: der transparente 4-Phasen-Prozess der Webagentur CADA Galaxy — mit klaren Rollen, zwei Feedback-Runden und 30 Tagen Nachbetreuung.",
+  description: "Vom Erstgespräch bis zur Fertigstellung in ∅ 3 Wochen: der transparente 4-Phasen-Prozess der Webagentur CADA Galaxy — mit klaren Rollen, zwei Feedback-Runden und 30 Tagen Nachbetreuung.",
 };
 
 const breadcrumbSchema = {

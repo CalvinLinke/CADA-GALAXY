@@ -44,7 +44,7 @@ const serviceSchema = {
       "item": {
         "@type": "Service",
         "name": "Frontend-Entwicklung",
-        "description": "Next.js & React, 3D mit Three.js / React Three Fiber, Motion & Animationen, Performance-Optimierung. 100/100 Lighthouse Score Standard.",
+        "description": "Next.js & React, 3D mit Three.js / React Three Fiber, Motion & Animationen, Performance-Optimierung. Auf Spitzen-Performance optimiert.",
         "provider": { "@id": "https://cada-galaxy.de/#organization" },
         "areaServed": { "@type": "Country", "name": "Deutschland" },
         "serviceType": "Frontend-Entwicklung mit Next.js und 3D Web",

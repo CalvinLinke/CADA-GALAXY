@@ -58,7 +58,9 @@ export default function ReferenzenPage() {
                 display: "grid",
                 gridTemplateColumns: "1fr 1fr",
                 gap: 0,
-                background: "var(--bg)",
+                background: "rgba(13,17,42,0.60)",
+                backdropFilter: "blur(7px)",
+                WebkitBackdropFilter: "blur(7px)",
               }}
               className="ref-row"
             >

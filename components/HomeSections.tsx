@@ -56,7 +56,9 @@ export function HomeSections() {
             <div
               key={item.value}
               style={{
-                background: "var(--bg)",
+                background: "rgba(13,17,42,0.60)",
+                backdropFilter: "blur(7px)",
+                WebkitBackdropFilter: "blur(7px)",
                 padding: "clamp(28px, 4vh, 48px) clamp(20px, 3vw, 40px)",
               }}
             >
@@ -332,7 +334,9 @@ export function HomeSections() {
             <div
               key={step.num}
               style={{
-                background: "var(--bg)",
+                background: "rgba(13,17,42,0.60)",
+                backdropFilter: "blur(7px)",
+                WebkitBackdropFilter: "blur(7px)",
                 padding: "clamp(24px, 3.5vh, 40px) clamp(18px, 2.5vw, 32px)",
               }}
             >
@@ -540,8 +544,8 @@ export function HomeSections() {
               }}
             >
               {lang === "de"
-                ? "CADA Galaxy ist eine Webagentur aus Dresden, spezialisiert auf 3D-Weberlebnisse, maximale Performance und kurze Projektlaufzeiten. Wir entwickeln Websites mit Next.js und Three.js — messbar schnell, einzigartig animiert, ∅ 14 Tage vom Briefing bis zum Launch."
-                : "CADA Galaxy is a web agency from Dresden, specialising in 3D web experiences, maximum performance and short project timelines. We build websites with Next.js and Three.js — measurably fast, uniquely animated, ∅ 14 days from briefing to launch."}
+                ? "CADA Galaxy ist eine Webagentur aus Dresden, spezialisiert auf 3D-Weberlebnisse, maximale Performance und kurze Projektlaufzeiten. Wir entwickeln Websites mit Next.js und Three.js: messbar schnell, einzigartig animiert, ∅ 3 Wochen vom Erstgespräch bis zur Fertigstellung."
+                : "CADA Galaxy is a web agency from Dresden, specialising in 3D web experiences, maximum performance and short project timelines. We build websites with Next.js and Three.js: measurably fast, uniquely animated, ∅ 3 weeks from the first call to completion."}
             </p>
           </div>
           <div
@@ -560,8 +564,8 @@ export function HomeSections() {
               }}
             >
               {lang === "de"
-                ? "Für Unternehmen in Deutschland, die mit ihrer Website in Erinnerung bleiben wollen. Kein Template, kein Baukasten — jedes Projekt entsteht von Grund auf neu, mit technischer Präzision und gestalterischem Anspruch."
-                : "For businesses in Germany that want their website to be remembered. No templates, no page builders — every project is built from scratch, with technical precision and design ambition."}
+                ? "Für Unternehmen in Deutschland, die mit ihrer Website in Erinnerung bleiben wollen. Kein Template, kein Baukasten: jedes Projekt entsteht von Grund auf neu, mit technischer Präzision und gestalterischem Anspruch."
+                : "For businesses in Germany that want their website to be remembered. No templates, no page builders: every project is built from scratch, with technical precision and design ambition."}
             </p>
             <Link
               href="/ueber-uns"

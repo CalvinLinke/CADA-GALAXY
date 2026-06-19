@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     default: "CADA Galaxy — Webagentur Dresden | 3D Web & Performance",
     template: "%s — CADA Galaxy",
   },
-  description: "Webagentur in Dresden: 3D Web, 100/100 Lighthouse Score, ∅ 14 Tage bis Launch. Digitale Erlebnisse die im Gedächtnis bleiben — für Unternehmen in Deutschland.",
+  description: "Webagentur in Dresden: 3D Web, auf Spitzen-Performance optimiert, ∅ 3 Wochen bis zur Fertigstellung. Digitale Erlebnisse die im Gedächtnis bleiben — für Unternehmen in Deutschland.",
   openGraph: {
     siteName: "CADA Galaxy",
     locale: "de_DE",
@@ -61,7 +61,7 @@ const jsonLd = {
         "url": "https://cada-galaxy.de/logo.png",
       },
       "image": "https://cada-galaxy.de/logo.png",
-      "description": "CADA Galaxy ist eine Webagentur aus Dresden, spezialisiert auf 3D-Weberlebnisse, maximale Performance (100/100 Lighthouse) und kurze Projektlaufzeiten (∅ 14 Tage). Für Unternehmen in Deutschland.",
+      "description": "CADA Galaxy ist eine Webagentur aus Dresden, spezialisiert auf 3D-Weberlebnisse, maximale Performance und kurze Projektlaufzeiten (∅ 3 Wochen). Für Unternehmen in Deutschland.",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Glashütter Str. 53",
@@ -131,7 +131,7 @@ const jsonLd = {
       "@id": "https://cada-galaxy.de/#website",
       "url": "https://cada-galaxy.de",
       "name": "CADA Galaxy",
-      "description": "Webagentur in Dresden — 3D Web, 100/100 Lighthouse, ∅ 14 Tage",
+      "description": "Webagentur in Dresden — 3D Web, Spitzen-Performance, ∅ 3 Wochen",
       "publisher": { "@id": "https://cada-galaxy.de/#organization" },
       "potentialAction": {
         "@type": "SearchAction",

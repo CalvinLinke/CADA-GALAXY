@@ -37,7 +37,9 @@ export function SiteFooter() {
         position: "relative",
         zIndex: 2,
         borderTop: "1px solid var(--line)",
-        background: "var(--bg)",
+        background: "rgba(13,17,42,0.65)",
+        backdropFilter: "blur(7px)",
+        WebkitBackdropFilter: "blur(7px)",
       }}
     >
       {/* Main row */}

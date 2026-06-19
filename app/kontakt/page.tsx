@@ -303,7 +303,7 @@ export default function KontaktPage() {
               marginBottom: 20,
             }}
           >
-            / KOORDINATEN
+            / KONTAKT
           </div>
           <p
             style={{
@@ -350,7 +350,7 @@ export default function KontaktPage() {
           >
             / ERREICHBARKEIT
           </div>
-          <p
+          <div
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 11,
@@ -358,12 +358,17 @@ export default function KontaktPage() {
               color: "var(--muted)",
               lineHeight: 1.9,
               marginBottom: 28,
+              display: "grid",
+              gridTemplateColumns: "auto 1fr",
+              columnGap: 18,
+              maxWidth: 220,
             }}
           >
-            Mo–Fr &nbsp;08:00 – 18:00 Uhr
-            <br />
-            Sa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 – 14:00 Uhr
-          </p>
+            <span>Mo–Fr</span>
+            <span>08:00 – 18:00 Uhr</span>
+            <span>Sa</span>
+            <span>09:00 – 14:00 Uhr</span>
+          </div>
 
           {/* Google Maps */}
           <div style={{ overflow: "hidden", border: "1px solid var(--line)" }}>
@@ -393,7 +398,9 @@ export default function KontaktPage() {
                   gap: 16,
                   textAlign: "center",
                   padding: "0 28px",
-                  background: "var(--bg)",
+                  background: "rgba(13,17,42,0.60)",
+                  backdropFilter: "blur(7px)",
+                  WebkitBackdropFilter: "blur(7px)",
                 }}
               >
                 <p
