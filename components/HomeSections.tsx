@@ -241,7 +241,7 @@ export function HomeSections() {
                         transition: "opacity 0.2s",
                       }}
                     >
-                      {lang === "de" ? "Zur Leistung" : "Learn more"} →
+                      {lang === "de" ? "Zur Leistung" : "Learn more"} <span aria-hidden="true">→</span>
                     </Link>
                   </div>
                 )}
@@ -266,7 +266,7 @@ export function HomeSections() {
               transition: "opacity 0.2s",
             }}
           >
-            {homeL.cta} →
+            {homeL.cta} <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>
@@ -316,7 +316,7 @@ export function HomeSections() {
               textDecoration: "none",
             }}
           >
-            {homeP.cta} →
+            {homeP.cta} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -424,7 +424,7 @@ export function HomeSections() {
               textDecoration: "none",
             }}
           >
-            {homeR.cta} →
+            {homeR.cta} <span aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -582,7 +582,7 @@ export function HomeSections() {
                 transition: "opacity 0.2s",
               }}
             >
-              {lang === "de" ? "Mehr über CADA Galaxy" : "More about CADA Galaxy"} →
+              {lang === "de" ? "Mehr über CADA Galaxy" : "More about CADA Galaxy"} <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

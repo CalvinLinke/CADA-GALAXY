@@ -10,7 +10,7 @@ export function CtaLink({ href, children }: CtaLinkProps) {
   return (
     <Link href={href} className="cta-orbit-btn">
       {children}
-      <span className="cta-arrow" />
+      <span className="cta-arrow" aria-hidden="true" />
     </Link>
   );
 }

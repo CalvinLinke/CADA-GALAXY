@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Prozess — 4 Phasen vom Briefing bis Launch",
   description: "Vom Erstgespräch bis zur Fertigstellung in ∅ 3 Wochen: der transparente 4-Phasen-Prozess der Webagentur CADA Galaxy — mit klaren Rollen, zwei Feedback-Runden und 30 Tagen Nachbetreuung.",
+  alternates: { canonical: "https://cada-galaxy.de/prozess" },
+  openGraph: {
+    title: "Prozess — 4 Phasen vom Briefing bis Launch — CADA Galaxy",
+    description: "Vom Erstgespräch bis zur Fertigstellung in ∅ 3 Wochen: der transparente 4-Phasen-Prozess der Webagentur CADA Galaxy — mit klaren Rollen, zwei Feedback-Runden und 30 Tagen Nachbetreuung.",
+    url: "https://cada-galaxy.de/prozess",
+    type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CADA Galaxy" }],
+  },
 };
 
 const breadcrumbSchema = {

@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FAQ — Kosten, Ablauf & Technologie",
   description: "Was kostet eine Website? Wie läuft ein Projekt ab? Alle Fragen zur Webagentur CADA Galaxy in Dresden — mit klaren Antworten zu Preisen, Technologie und Ablauf.",
+  alternates: { canonical: "https://cada-galaxy.de/faq" },
+  openGraph: {
+    title: "FAQ — Kosten, Ablauf & Technologie — CADA Galaxy",
+    description: "Was kostet eine Website? Wie läuft ein Projekt ab? Alle Fragen zur Webagentur CADA Galaxy in Dresden — mit klaren Antworten zu Preisen, Technologie und Ablauf.",
+    url: "https://cada-galaxy.de/faq",
+    type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CADA Galaxy" }],
+  },
 };
 
 const faqSchema = {

@@ -11,7 +11,7 @@ export default function Home() {
       <div className="space-bg" />
       <GalaxyBackground />
       <Header />
-      <main>
+      <main id="main-content">
         <Hero />
         <HomeSections />
         <Contact />

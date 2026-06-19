@@ -455,7 +455,7 @@ export default function UeberUnsPage() {
               textDecoration: "none",
             }}
           >
-            {isDE ? "Alle Referenzen" : "All references"} →
+            {isDE ? "Alle Referenzen" : "All references"} <span aria-hidden="true">→</span>
           </Link>
         </div>
         <p

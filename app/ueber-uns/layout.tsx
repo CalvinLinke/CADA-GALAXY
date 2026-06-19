@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Über uns — Webagentur CADA Galaxy aus Dresden",
   description: "CADA Galaxy ist eine Webagentur aus Dresden, spezialisiert auf 3D-Weberlebnisse, Next.js-Entwicklung und maximale Performance. Für Unternehmen in Deutschland.",
+  alternates: { canonical: "https://cada-galaxy.de/ueber-uns" },
+  openGraph: {
+    title: "Über uns — Webagentur CADA Galaxy aus Dresden",
+    description: "CADA Galaxy ist eine Webagentur aus Dresden, spezialisiert auf 3D-Weberlebnisse, Next.js-Entwicklung und maximale Performance. Für Unternehmen in Deutschland.",
+    url: "https://cada-galaxy.de/ueber-uns",
+    type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CADA Galaxy" }],
+  },
 };
 
 const aboutSchema = {

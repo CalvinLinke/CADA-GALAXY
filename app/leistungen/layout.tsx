@@ -3,6 +3,14 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Leistungen — Webdesign & Entwicklung",
   description: "Webdesign, UX, Next.js-Entwicklung, 3D-Web, Brand & CI — alle Leistungen der Webagentur CADA Galaxy. Ab €1.000 für Landingpages, ab €2.500 für Unternehmenswebsites.",
+  alternates: { canonical: "https://cada-galaxy.de/leistungen" },
+  openGraph: {
+    title: "Leistungen — Webdesign & Entwicklung — CADA Galaxy",
+    description: "Webdesign, UX, Next.js-Entwicklung, 3D-Web, Brand & CI — alle Leistungen der Webagentur CADA Galaxy. Ab €1.000 für Landingpages, ab €2.500 für Unternehmenswebsites.",
+    url: "https://cada-galaxy.de/leistungen",
+    type: "website",
+    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "CADA Galaxy" }],
+  },
 };
 
 const serviceSchema = {

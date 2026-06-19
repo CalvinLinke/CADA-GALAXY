@@ -153,7 +153,7 @@ export default function ReferenzenPage() {
                   onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--ink)"; }}
                 >
                   {t.project_label}
-                  <span className="cta-arrow" style={{ width: 20 }} />
+                  <span className="cta-arrow" style={{ width: 20 }} aria-hidden="true" />
                 </a>
               </div>
             </div>

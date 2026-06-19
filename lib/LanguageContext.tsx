@@ -16,6 +16,10 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     if (stored === "de" || stored === "en") setLangState(stored);
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   const setLang = (l: Lang) => {
     setLangState(l);
     localStorage.setItem("cadagalaxy-lang", l);

@@ -9,6 +9,7 @@ export function SubpageLayout({ children }: { children: React.ReactNode }) {
       <GalaxyBackground immediate />
       <Header />
       <main
+        id="main-content"
         className="subpage-main"
         style={{
           paddingTop: "clamp(100px, 14vh, 140px)",

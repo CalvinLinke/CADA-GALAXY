@@ -166,7 +166,7 @@ export function Hero() {
               }}
             >
               ENTDECKEN
-              <span className="cta-arrow" />
+              <span className="cta-arrow" aria-hidden="true" />
             </a>
           </div>
         </div>
