@@ -5,8 +5,6 @@ import { SubpageLayout } from "@/components/SubpageLayout";
 import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
-const FORMSPREE_ID = "YOUR_FORMSPREE_ID";
-
 const COMPANY = {
   name: "CADA Invest GmbH",
   street: "Glashütter Str. 53",
@@ -62,12 +60,18 @@ export default function KontaktPage() {
     setStatus("sending");
     const form = e.currentTarget;
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const formData = new FormData(form);
+      formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ?? "");
+      formData.append("subject", "Neue Anfrage über cada-galaxy.de");
+      formData.append("from_name", "CADA Galaxy Website");
+
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: new FormData(form),
+        body: formData,
         headers: { Accept: "application/json" },
       });
-      if (res.ok) {
+      const data = await res.json().catch(() => ({}));
+      if (res.ok && data.success) {
         setStatus("success");
         form.reset();
       } else {
