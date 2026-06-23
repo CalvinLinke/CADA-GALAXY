@@ -39,6 +39,7 @@ export function HomeSections() {
             color: "var(--accent)",
             marginBottom: 32,
           }}
+          className="accent-box"
         >
           {stats.eyebrow}
         </div>
@@ -123,6 +124,7 @@ export function HomeSections() {
                 color: "var(--accent)",
                 marginBottom: 16,
               }}
+              className="accent-box"
             >
               {homeL.eyebrow}
             </div>
@@ -170,8 +172,8 @@ export function HomeSections() {
                         color: "var(--accent)",
                         textTransform: "uppercase",
                         flexShrink: 0,
-                        width: 28,
                       }}
+                      className="accent-box"
                     >
                       {item.num}
                     </span>
@@ -236,10 +238,9 @@ export function HomeSections() {
                         display: "inline-flex",
                         alignItems: "center",
                         gap: 8,
-                        borderBottom: "1px solid var(--accent)",
-                        paddingBottom: 3,
                         transition: "opacity 0.2s",
                       }}
+                      className="accent-box"
                     >
                       {lang === "de" ? "Zur Leistung" : "Learn more"} <span aria-hidden="true">→</span>
                     </Link>
@@ -265,6 +266,7 @@ export function HomeSections() {
               gap: 8,
               transition: "opacity 0.2s",
             }}
+            className="accent-box"
           >
             {homeL.cta} <span aria-hidden="true">→</span>
           </Link>
@@ -289,6 +291,7 @@ export function HomeSections() {
             color: "var(--accent)",
             marginBottom: 16,
           }}
+          className="accent-box"
         >
           {homeP.eyebrow}
         </div>
@@ -315,6 +318,7 @@ export function HomeSections() {
               color: "var(--accent)",
               textDecoration: "none",
             }}
+            className="accent-box"
           >
             {homeP.cta} <span aria-hidden="true">→</span>
           </Link>
@@ -348,6 +352,7 @@ export function HomeSections() {
                   letterSpacing: "0.2em",
                   marginBottom: 18,
                 }}
+                className="accent-box"
               >
                 {step.num}
               </div>
@@ -397,6 +402,7 @@ export function HomeSections() {
             color: "var(--accent)",
             marginBottom: 16,
           }}
+          className="accent-box"
         >
           {homeR.eyebrow}
         </div>
@@ -423,6 +429,7 @@ export function HomeSections() {
               color: "var(--accent)",
               textDecoration: "none",
             }}
+            className="accent-box"
           >
             {homeR.cta} <span aria-hidden="true">→</span>
           </Link>
@@ -470,6 +477,7 @@ export function HomeSections() {
                     color: "var(--accent)",
                     marginBottom: 8,
                   }}
+                  className="accent-box"
                 >
                   {ref.category}
                 </div>
@@ -518,6 +526,7 @@ export function HomeSections() {
                 color: "var(--accent)",
                 marginBottom: 20,
               }}
+              className="accent-box"
             >
               {lang === "de" ? "/ Über uns" : "/ About"}
             </div>
@@ -581,6 +590,7 @@ export function HomeSections() {
                 gap: 8,
                 transition: "opacity 0.2s",
               }}
+              className="accent-box"
             >
               {lang === "de" ? "Mehr über CADA Galaxy" : "More about CADA Galaxy"} <span aria-hidden="true">→</span>
             </Link>

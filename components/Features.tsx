@@ -38,6 +38,7 @@ export function Features() {
               color: "var(--accent)",
               marginBottom: 16,
             }}
+            className="accent-box"
           >
             {t.eyebrow}
           </div>
@@ -87,6 +88,7 @@ export function Features() {
                 color: "var(--accent)",
                 letterSpacing: "0.2em",
               }}
+              className="accent-box"
             >
               {c.num}
             </div>

@@ -30,6 +30,7 @@ export function Contact() {
           color: "var(--accent)",
           marginBottom: 28,
         }}
+        className="accent-box"
       >
         {t.eyebrow}
       </div>

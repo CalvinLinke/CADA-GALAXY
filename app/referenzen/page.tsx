@@ -18,6 +18,7 @@ export default function ReferenzenPage() {
       {/* Hero */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,
@@ -96,6 +97,7 @@ export default function ReferenzenPage() {
                 }}
               >
                 <div
+                  className="accent-box"
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 11,
@@ -135,6 +137,7 @@ export default function ReferenzenPage() {
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="accent-box"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -144,8 +147,6 @@ export default function ReferenzenPage() {
                     letterSpacing: "0.18em",
                     textTransform: "uppercase",
                     color: "var(--ink)",
-                    borderBottom: "1px solid var(--accent)",
-                    paddingBottom: 4,
                     width: "fit-content",
                     transition: "color 0.2s",
                   }}

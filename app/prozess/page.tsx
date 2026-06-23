@@ -17,6 +17,7 @@ export default function ProzessPage() {
       {/* Hero */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,
@@ -74,6 +75,7 @@ export default function ProzessPage() {
               {/* Number */}
               <div style={{ paddingTop: 4 }}>
                 <div
+                  className="accent-box"
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 12,
@@ -120,6 +122,7 @@ export default function ProzessPage() {
                   {step.desc}
                 </p>
                 <p
+                  className="accent-box"
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 10,
@@ -184,6 +187,7 @@ export default function ProzessPage() {
 
                 <div>
                   <div
+                    className="accent-box"
                     style={{
                       fontFamily: "var(--font-mono)",
                       fontSize: 10,

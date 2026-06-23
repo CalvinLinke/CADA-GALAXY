@@ -18,6 +18,7 @@ export default function TechnologiePage() {
       {/* Hero */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,
@@ -76,6 +77,7 @@ export default function TechnologiePage() {
             >
               <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
                 <span
+                  className="accent-box"
                   style={{
                     fontFamily: "var(--font-mono)",
                     fontSize: 11,
@@ -154,6 +156,7 @@ export default function TechnologiePage() {
         }}
       >
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,

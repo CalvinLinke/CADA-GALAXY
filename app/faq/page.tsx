@@ -87,6 +87,7 @@ export default function FaqPage() {
       {/* Hero */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,

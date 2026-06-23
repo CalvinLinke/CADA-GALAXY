@@ -78,6 +78,7 @@ export default function UeberUnsPage() {
       {/* Hero */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,
@@ -204,6 +205,7 @@ export default function UeberUnsPage() {
         >
           <div>
             <div
+              className="accent-box"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 10,
@@ -248,6 +250,7 @@ export default function UeberUnsPage() {
       {/* Werte */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 10,
@@ -274,6 +277,7 @@ export default function UeberUnsPage() {
               className="values-row"
             >
               <div
+                className="accent-box"
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: 11,
@@ -329,6 +333,7 @@ export default function UeberUnsPage() {
         >
           <div>
             <div
+              className="accent-box"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 10,
@@ -411,6 +416,7 @@ export default function UeberUnsPage() {
         }}
       >
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 10,
@@ -446,6 +452,7 @@ export default function UeberUnsPage() {
           </h2>
           <Link
             href="/referenzen"
+            className="accent-box"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 11,

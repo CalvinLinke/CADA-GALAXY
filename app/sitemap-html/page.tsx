@@ -39,6 +39,7 @@ export default function SitemapHtmlPage() {
     <SubpageLayout>
       <section style={{ padding: `${sectionPad} ${px}` }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,

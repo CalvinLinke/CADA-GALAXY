@@ -87,6 +87,7 @@ export default function KontaktPage() {
       {/* Hero */}
       <section style={{ padding: `${sectionPad} ${px}`, borderBottom: "1px solid var(--line)" }}>
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,
@@ -298,6 +299,7 @@ export default function KontaktPage() {
         <div>
           {/* Koordinaten */}
           <div
+            className="accent-box"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 10,
@@ -343,6 +345,7 @@ export default function KontaktPage() {
 
           {/* Erreichbarkeit */}
           <div
+            className="accent-box"
             style={{
               fontFamily: "var(--font-mono)",
               fontSize: 10,

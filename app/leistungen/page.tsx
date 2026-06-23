@@ -22,6 +22,7 @@ export default function LeistungenPage() {
         }}
       >
         <div
+          className="accent-box"
           style={{
             fontFamily: "var(--font-mono)",
             fontSize: 12,
@@ -77,6 +78,7 @@ export default function LeistungenPage() {
               className="leistung-row"
             >
               <div
+                className="accent-box"
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontSize: 12,

@@ -2,7 +2,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useLanguage } from "@/lib/LanguageContext";
 import { translations } from "@/lib/translations";
 
@@ -16,10 +15,7 @@ function formatClock(seconds: number): string {
 export function Header() {
   const [seconds, setSeconds] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const { lang, setLang } = useLanguage();
-  const pathname = usePathname();
-  const isHome = pathname === "/";
   const t = translations[lang].nav;
 
   useEffect(() => {
@@ -40,13 +36,6 @@ export function Header() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const navItems = [
     { href: "/leistungen",  label: t.leistungen },
@@ -72,12 +61,10 @@ export function Header() {
           justifyContent: "space-between",
           padding: "26px clamp(22px, 4vw, 56px)",
           gap: 16,
-          background: isHome
-            ? (scrolled ? "rgba(6,6,20,0.85)" : "transparent")
-            : "rgba(6,6,20,0.94)",
-          backdropFilter: isHome && scrolled ? "blur(10px)" : undefined,
-          borderBottom: isHome && scrolled ? "1px solid var(--line)" : "1px solid transparent",
-          boxShadow: isHome ? undefined : "0 4px 0 4px rgba(6,6,20,0.94)",
+          background: "transparent",
+          backdropFilter: undefined,
+          borderBottom: "1px solid transparent",
+          boxShadow: undefined,
           transition: "background .3s ease, backdrop-filter .3s ease, border-color .3s ease",
         }}
       >

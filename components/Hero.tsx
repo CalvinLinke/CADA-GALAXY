@@ -77,6 +77,7 @@ export function Hero() {
           >
             {/* kicker */}
             <div
+              className="accent-box"
               style={{
                 fontFamily: "var(--font-mono)",
                 fontSize: 12,

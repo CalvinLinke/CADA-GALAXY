@@ -83,9 +83,10 @@ export function SiteFooter() {
           </p>
           <a
             href={`mailto:${f.email}`}
+            className="accent-box"
             style={{
               ...linkStyle,
-              display: "block",
+              display: "inline-block",
               marginTop: 12,
               color: "var(--accent)",
               fontSize: 12,
